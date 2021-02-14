@@ -25,26 +25,41 @@
 	   $err_uname = "*Username should be at least 6 characters";
 	   }
 	 else{
-	   $uname = $_POST("uname");
+	   $uname = $_POST["uname"];
 	   }
 	 if(empty($_POST["pass"])){
 	   $err_password = "*Password Required";
 	   }
 	 else{
-	   $password = $_POST("pass");
-	   }
+	   $password = $_POST["pass"];
+	    }
+		
 	 if(isset($_POST["gender"])){
-	    echo  "Gender: ". $_POST["gender"];
+		 $gender = $_POST["gender"];
+	    }
+	 else{
+		 $err_gender = "*Gender Required";
+	    }
+		
+	 if(isset($_POST["hobbies"])){
+		 $hobbies = $_POST["hobbies"];
+	    }
+	 else{
+		 $err_hobbies = "*Hobbies Required";
+	    }
+
+	 if(isset($_POST["profession"])){
+	   $err_profession = "*Profession Required";
 	   }
-     if(isset($_POST["hobbies"]))
-       	  echo  "Hobbies: ". $_POST["hobbies"];
-     if(isset($_POST["profession"]))
-       	  echo  "Profession: ". $_POST["profession"];	  
+	 else{
+		$profession = $_POST["profession"];
+	    }
+       
 	 if(empty($_POST["bio"])){
 	   $err_bio = "*Bio Required";
 	   }
 	 else{
-	   $bio = $_POST("bio");
+	   $bio = $_POST["bio"];
 	   }
 	}
     
@@ -79,6 +94,7 @@
 					<td><span>Profession</span></td>
 					<td>:
 						<select name="profession">
+						    <option></option>
 							<option>Teaching</option>
 							<option>Business</option>
 							<option>Service</option>
